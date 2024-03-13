@@ -72,7 +72,7 @@ public class EmployeeProfilePage {
 		frmEmployeeProfilePage.getContentPane().setLayout(null);
 		
 		JLabel personalInformationLabel = new JLabel("Personal Information");
-		personalInformationLabel.setBounds(49, 40, 153, 14);
+		personalInformationLabel.setBounds(49, 38, 153, 14);
 		personalInformationLabel.setFont(new Font("Arial", Font.BOLD, 14));
 		personalInformationLabel.setBackground(new Color(255, 255, 255));
 		frmEmployeeProfilePage.getContentPane().add(personalInformationLabel);
@@ -190,13 +190,13 @@ public class EmployeeProfilePage {
 		frmEmployeeProfilePage.getContentPane().add(addresstextField);
 		
 		JButton profileButton = new JButton("Profile");
-		profileButton.setBounds(789, 83, 144, 37);
+		profileButton.setBounds(788, 68, 144, 37);
 		profileButton.setBackground(new Color(240, 248, 255));
 		profileButton.setFont(new Font("Arial", Font.BOLD, 12));
 		frmEmployeeProfilePage.getContentPane().add(profileButton);
 		
 		JButton btnLeaveRequest = new JButton("Leave Request");
-		btnLeaveRequest.setBounds(789, 132, 144, 37);
+		btnLeaveRequest.setBounds(789, 115, 144, 37);
 		btnLeaveRequest.setFont(new Font("Arial", Font.BOLD, 12));
 		btnLeaveRequest.setBackground(new Color(240, 248, 255));
 		frmEmployeeProfilePage.getContentPane().add(btnLeaveRequest);
@@ -253,7 +253,7 @@ public class EmployeeProfilePage {
 		editButton.setBackground(new Color(255, 255, 255));
 		frmEmployeeProfilePage.getContentPane().add(editButton);
 		
-		JButton searchButton = new JButton("Dashboard");
+		JButton searchButton = new JButton("Logout");
 		searchButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -266,13 +266,13 @@ public class EmployeeProfilePage {
 		JButton btnPayroll = new JButton("Payroll");
 		btnPayroll.setFont(new Font("Arial", Font.BOLD, 12));
 		btnPayroll.setBackground(new Color(240, 248, 255));
-		btnPayroll.setBounds(789, 224, 144, 37);
+		btnPayroll.setBounds(791, 207, 144, 37);
 		frmEmployeeProfilePage.getContentPane().add(btnPayroll);
 		
 		JButton btnAttendance = new JButton("Attendance");
 		btnAttendance.setFont(new Font("Arial", Font.BOLD, 12));
 		btnAttendance.setBackground(new Color(240, 248, 255));
-		btnAttendance.setBounds(789, 179, 144, 37);
+		btnAttendance.setBounds(790, 162, 144, 37);
 		frmEmployeeProfilePage.getContentPane().add(btnAttendance);
 		
 		JSeparator PIseparator_3 = new JSeparator();
@@ -358,8 +358,16 @@ public class EmployeeProfilePage {
 		frmEmployeeProfilePage.getContentPane().add(DepartmentLabel);
 		
 		JLabel lblNewLabel = new JLabel("Image (Passport Size)");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBackground(new Color(240, 248, 255));
-		lblNewLabel.setBounds(535, 86, 188, 175);
+		lblNewLabel.setBounds(535, 69, 188, 220);
 		frmEmployeeProfilePage.getContentPane().add(lblNewLabel);
+		
+		JButton btnDashboard = new JButton("Dashboard");
+		btnDashboard.setFont(new Font("Arial", Font.BOLD, 12));
+		btnDashboard.setBackground(new Color(240, 248, 255));
+		btnDashboard.setBounds(792, 254, 144, 37);
+		frmEmployeeProfilePage.getContentPane().add(btnDashboard);
 	}
 }

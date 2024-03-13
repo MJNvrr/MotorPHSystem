@@ -26,13 +26,15 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.border.LineBorder;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class EmployeeLeavePage {
 
 	private JFrame frmEmployeeLeavePage;
 	private JTextField imagetextField;
 	private JTextField CommentsTxt;
-	private JTextField txtLeaveTypeStartDateEndDateStatus_PR;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -62,14 +64,15 @@ public class EmployeeLeavePage {
 	 */
 	private void initialize() {
 		frmEmployeeLeavePage = new JFrame();
+		frmEmployeeLeavePage.setTitle("Employee Leave Page");
 		frmEmployeeLeavePage.setBounds(100, 100, 1015, 881);
 		frmEmployeeLeavePage.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		frmEmployeeLeavePage.setSize(1652,899);
+		frmEmployeeLeavePage.setSize(1295,762);
 		frmEmployeeLeavePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmEmployeeLeavePage.getContentPane().setLayout(null);
 		
 		imagetextField = new JTextField();
-		imagetextField.setBounds(532, 93, 161, 182);
+		imagetextField.setBounds(532, 93, 197, 198);
 		imagetextField.setHorizontalAlignment(SwingConstants.CENTER);
 		imagetextField.setText("Image here");
 		imagetextField.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -83,23 +86,23 @@ public class EmployeeLeavePage {
 		frmEmployeeLeavePage.getContentPane().add(ProfileButton);
 		
 		JButton btnLeaveRequest = new JButton("Leave Request");
-		btnLeaveRequest.setBounds(782, 146, 122, 32);
+		btnLeaveRequest.setBounds(782, 136, 122, 32);
 		btnLeaveRequest.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		btnLeaveRequest.setFont(new Font("Arial", Font.BOLD, 12));
-		btnLeaveRequest.setBackground(new Color(240, 248, 255));
+		btnLeaveRequest.setBackground(new Color(176, 196, 222));
 		frmEmployeeLeavePage.getContentPane().add(btnLeaveRequest);
 		
 		JButton btnPayroll = new JButton("Payroll");
-		btnPayroll.setBounds(782, 243, 122, 32);
+		btnPayroll.setBounds(784, 212, 122, 32);
 		btnPayroll.setFont(new Font("Arial", Font.BOLD, 12));
 		btnPayroll.setBackground(new Color(240, 248, 255));
 		frmEmployeeLeavePage.getContentPane().add(btnPayroll);
 		
 		JButton btnAttendance = new JButton("Attendance");
-		btnAttendance.setBounds(782, 195, 122, 32);
+		btnAttendance.setBounds(782, 176, 122, 32);
 		btnAttendance.setFont(new Font("Arial", Font.BOLD, 12));
 		btnAttendance.setBackground(new Color(240, 248, 255));
 		frmEmployeeLeavePage.getContentPane().add(btnAttendance);
@@ -191,16 +194,9 @@ public class EmployeeLeavePage {
 		frmEmployeeLeavePage.getContentPane().add(EndDateTxt);
 		
 		JLabel pendingRequestLabelmenu = new JLabel("Pending Request");
-		pendingRequestLabelmenu.setBounds(532, 364, 161, 14);
+		pendingRequestLabelmenu.setBounds(519, 357, 161, 14);
 		pendingRequestLabelmenu.setFont(new Font("Arial", Font.BOLD, 14));
 		frmEmployeeLeavePage.getContentPane().add(pendingRequestLabelmenu);
-		
-		txtLeaveTypeStartDateEndDateStatus_PR = new JTextField();
-		txtLeaveTypeStartDateEndDateStatus_PR.setBounds(532, 402, 376, 23);
-		txtLeaveTypeStartDateEndDateStatus_PR.setText(" Leave Type               Start Date               End Date               Status");
-		txtLeaveTypeStartDateEndDateStatus_PR.setFont(new Font("Arial", Font.BOLD, 12));
-		frmEmployeeLeavePage.getContentPane().add(txtLeaveTypeStartDateEndDateStatus_PR);
-		txtLeaveTypeStartDateEndDateStatus_PR.setColumns(10);
 		
 		JSeparator RLseparator_1 = new JSeparator();
 		RLseparator_1.setBounds(175, 364, 258, 24);
@@ -268,17 +264,70 @@ public class EmployeeLeavePage {
 		frmEmployeeLeavePage.getContentPane().add(comboBoxSelectLeaveTypeTxt);
 		
 		JButton submitButton = new JButton("Submit");
-		submitButton.setBounds(201, 693, 86, 25);
+		submitButton.setBounds(204, 694, 86, 25);
 		submitButton.setFont(new Font("Arial", Font.BOLD, 12));
 		frmEmployeeLeavePage.getContentPane().add(submitButton);
 		
-		JSeparator PIseparator_3_1 = new JSeparator();
-		PIseparator_3_1.setBounds(221, 57, 210, 14);
-		frmEmployeeLeavePage.getContentPane().add(PIseparator_3_1);
+		JSeparator PIseparator_1 = new JSeparator();
+		PIseparator_1.setBounds(221, 57, 210, 14);
+		frmEmployeeLeavePage.getContentPane().add(PIseparator_1);
 		
-		JPanel pendingRequestpanel = new JPanel();
-		pendingRequestpanel.setBounds(534, 425, 376, 172);
-		frmEmployeeLeavePage.getContentPane().add(pendingRequestpanel);
+		JScrollPane PendingRequestscrollPane = new JScrollPane();
+		PendingRequestscrollPane.setBounds(514, 399, 660, 257);
+		frmEmployeeLeavePage.getContentPane().add(PendingRequestscrollPane);
+		
+		table = new JTable();
+		PendingRequestscrollPane.setViewportView(table);
+		table.setFont(new Font("Arial", Font.PLAIN, 8));
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, "", null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"Employee No", "Last Name", "First Name", "Position", "Leave Type", "Start Date", "End Date", "Status"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, false, false, false, false, false, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+		
+		JButton editButton = new JButton("Edit");
+		editButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		editButton.setFont(new Font("Arial", Font.BOLD, 12));
+		editButton.setBounds(57, 694, 86, 25);
+		frmEmployeeLeavePage.getContentPane().add(editButton);
+		
+		JButton btnLogOut = new JButton("Log out");
+		btnLogOut.setFont(new Font("Arial", Font.BOLD, 12));
+		btnLogOut.setBounds(340, 694, 86, 25);
+		frmEmployeeLeavePage.getContentPane().add(btnLogOut);
+		
+		JButton btnDashboard = new JButton("Dashboard");
+		btnDashboard.setFont(new Font("Arial", Font.BOLD, 12));
+		btnDashboard.setBackground(new Color(240, 248, 255));
+		btnDashboard.setBounds(784, 252, 122, 32);
+		frmEmployeeLeavePage.getContentPane().add(btnDashboard);
 		
 		
 		submitButton.addActionListener(new ActionListener() {
